@@ -1,3 +1,5 @@
+-- basic sql 
+-- create table and other queries 
 CREATE TABLE customer (
    customer_id serial PRIMARY KEY,
    first_name character varying(100) NOT NULL,
@@ -25,6 +27,9 @@ ALTER TABLE customer RENAME TO users;
 
 ALTER TABLE users RENAME TO customer;
 
+-- after set-up postgreSQL perform create insert Update Delete and Sub-query in postgreSQL
+
+-- create table query
 CREATE TABLE orders (
     order_id SERIAL PRIMARY KEY,
     customer_id INTEGER NOT NULL REFERENCES customer(customer_id),
@@ -33,24 +38,26 @@ CREATE TABLE orders (
     order_amount DECIMAL(10,2) NOT NULL
 );
 
+-- insert data
 INSERT INTO customer(first_name, last_name, email, created_date, updated_date, active)
-	VALUES ('Hiren','Patel','hiren.parejiya@tatvasoft.com',now(),NULL,true);
-	
+	VALUES ('Hardik','Pandya','hardik.pandya@tatvasoft.com',now(),NULL,true);
+
+--multiple insert data
 INSERT INTO customer (first_name, last_name, email, created_date, updated_date,active) VALUES
-  ('John', 'Doe', 'johndoe@example.com', NOW(), NULL,true),
+  ('Jay', 'Dube', 'jaydube@example.com', NOW(), NULL,true),
   ('Alice', 'Smith', 'alicesmith@example.com', NOW(), NULL,true),
-  ('Bob', 'Johnson', 'bjohnson@example.com', NOW(), NULL,true),
-  ('Emma', 'Brown', 'emmabrown@example.com', NOW(), NULL,true),
-  ('Michael', 'Lee', 'michaellee@example.com', NOW(), NULL,false),
+  ('Baban', 'maheta', 'babandon@example.com', NOW(), NULL,true),
+  ('Emma', 'watson', 'emmawatson@example.com', NOW(), NULL,true),
+  ('Michael', 'voghan', 'michaelvoghan@example.com', NOW(), NULL,false),
   ('Sarah', 'Wilson', 'sarahwilson@example.com', NOW(), NULL,true),
-  ('David', 'Clark', 'davidclark@example.com', NOW(), NULL,true),
+  ('David', 'warner', 'davidwarnwer@example.com', NOW(), NULL,true),
   ('Olivia', 'Martinez', 'oliviamartinez@example.com', NOW(), NULL,true),
-  ('James', 'Garcia', 'jamesgarcia@example.com', NOW(), NULL,false),
-  ('Sophia', 'Lopez', 'sophialopez@example.com', NOW(), NULL,false),
+  ('James', 'Anderson', 'jamesanderson@example.com', NOW(), NULL,false),
+  ('Sophi', 'devine', 'sophidevine@example.com', NOW(), NULL,false),
   ('Jennifer', 'Davis', 'jennifer.davis@example.com', NOW(), NULL,true),
-  ('Jennie', 'Terry', 'jennie.terry@example.com', NOW(), NULL,true),
-  ('JENNY', 'SMITH', 'jenny.smith@example.com', NOW(), NULL,false),
-  ('Hiren', 'Patel', 'hirenpatel@example.com', NOW(), NULL,false);
+  ('Jennie', 'perry', 'jennie.perry@example.com', NOW(), NULL,true),
+  ('Jaimin', 'Solanki', 'jaimin.solanki@example.com', NOW(), NULL,false),
+  ('Hadik', 'Pandya', 'hardikpandya@example.com', NOW(), NULL,false);
   
 INSERT INTO orders (customer_id, order_date, order_number, order_amount) VALUES
   (1, '2024-01-01', 'ORD001', 50.00),
@@ -75,15 +82,18 @@ INSERT INTO orders (customer_id, order_date, order_number, order_amount) VALUES
 SELECT customer_id, first_name, last_name, email, created_date, updated_date, active
 FROM customer;
 
+-- upadte query
 UPDATE customer
-SET first_name='Hiren',
-last_name='Parejiya', 
-email='hiren.parejiya@tatvasoft.com'
+SET first_name='Hardik',
+last_name='Patel', 
+email='hiren.patel@ibm.com'
 WHERE customer_id = 1;
 
+-- delete query
 DELETE FROM customer
 WHERE customer_id = 11;
 
+-- select query
 SELECT first_name FROM customer;
 
 SELECT
@@ -127,7 +137,7 @@ SELECT
 FROM
 	customer
 WHERE
-	first_name = 'Hiren';
+	first_name = 'Alice';
 
 SELECT
 	customer_id,
@@ -136,7 +146,7 @@ SELECT
 FROM
 	customer
 WHERE
-	first_name = 'Hiren' AND last_name = 'Parejiya';
+	first_name = 'sophi' AND last_name = 'devine';
 
 SELECT
 	customer_id,
@@ -144,7 +154,7 @@ SELECT
 	last_name
 FROM
 	customer
-WHERE first_name IN ('John','David','James');
+WHERE first_name IN ('Jay','David','James');
 
 SELECT
 	first_name,
