@@ -32,11 +32,11 @@ CREATE TABLE orders (
 INSERT INTO users(first_name, last_name, email, created_date, updated_date) VALUES
   ('Rajan', 'Dalvadi', 'rajandalvadi@gmail.com', NOW(), NULL),
   ('Harsh', 'Dhimmar', 'harsh@gmail.com', NOW(), NULL),
-  ('Kaushal', 'Kaushal', 'Kaushal@gmail.com', NOW(), NULL),
-  ('mahendra', 'banna', 'mahendra@gmail.com', NOW(), NULL),
-  ('aryan', 'Terry', 'aryan@gmail.com', NOW(), NULL),
+  ('Kaushal', 'jain', 'Kaushal@gmail.com', NOW(), NULL),
+  ('mahendrasigh', 'Dhoni', 'mahendra@gmail.com', NOW(), NULL),
+  ('Rishabh', 'parmar', 'rishabhpar7@gmail.com', NOW(), NULL),
   ('Shrikant', 'patel', 'Shrikant@gmail.com', NOW(), NULL),
-  ('ravi', 'Patel', 'ravi@gmail.com', NOW(), NULL);
+  ('ravi', 'Kishan', 'ravi@gmail.com', NOW(), NULL);
 
 INSERT INTO orders (customer_id, order_date, order_number, order_amount) VALUES
   (1, '2024-01-01', 'ORD001', 50.00),
